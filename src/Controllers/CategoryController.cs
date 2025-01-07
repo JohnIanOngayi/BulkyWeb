@@ -17,7 +17,7 @@ public class CategoryController : Controller
     {
         // Retrieve all categories from the database as a list
         //     Do recall that Categories is a DbSet in ApplicationDbContext
-        List<Category> objCategoryList = _db.Categories.ToList();
+        List<Category> objCategoryList = _db.Categories?.ToList() ?? new List<Category>();
         return View(objCategoryList);
     }
 }
