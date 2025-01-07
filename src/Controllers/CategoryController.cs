@@ -13,11 +13,16 @@ public class CategoryController : Controller
         _db = db;
     }
 
-    public ActionResult Index()
+    public IActionResult Index()
     {
         // Retrieve all categories from the database as a list
         //     Do recall that Categories is a DbSet in ApplicationDbContext
         List<Category> objCategoryList = _db.Categories?.ToList() ?? new List<Category>();
         return View(objCategoryList);
+    }
+
+    public IActionResult Create()
+    {
+        return View();
     }
 }

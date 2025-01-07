@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace src.Models;
 
@@ -8,5 +9,7 @@ public class Category
 
     [Required]
     public required string Name { get; set; }
+
+    [DisplayName("Display Order")]
     public int DisplayOrder { get; set; }
 }
