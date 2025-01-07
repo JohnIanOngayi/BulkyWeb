@@ -33,6 +33,18 @@ public class ApplicationDbContext : DbContext
                     Id = 3,
                     Name = "History",
                     DisplayOrder = 3,
+                },
+                new Category
+                {
+                    Id = 4,
+                    Name = "Sports",
+                    DisplayOrder = 4,
+                },
+                new Category
+                {
+                    Id = 5,
+                    Name = "Arcade",
+                    DisplayOrder = 5,
                 }
             );
     }
