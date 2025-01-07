@@ -1,12 +1,23 @@
 using Microsoft.AspNetCore.Mvc;
+using src.Data;
+using src.Models;
 
 namespace src.Controllers;
 
 public class CategoryController : Controller
 {
-    // GET: CategoryController
+    private readonly ApplicationDbContext _db;
+
+    public CategoryController(ApplicationDbContext db)
+    {
+        _db = db;
+    }
+
     public ActionResult Index()
     {
-        return View();
+        // Retrieve all categories from the database as a list
+        //     Do recall that Categories is a DbSet in ApplicationDbContext
+        List<Category> objCategoryList = _db.Categories.ToList();
+        return View(objCategoryList);
     }
 }
