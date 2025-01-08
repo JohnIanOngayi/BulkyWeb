@@ -39,4 +39,31 @@ public class CategoryController : Controller
         }
         return View();
     }
+
+    public IActionResult Edit(int? id)
+    {
+        if (id is null || id == 0)
+            return NotFound();
+
+        Category? categoryFromDB = _db.Categories?.FirstOrDefault(category => category.Id == id);
+
+        if (categoryFromDB is null)
+            return NotFound();
+
+        return View(categoryFromDB);
+    }
+
+    [HttpPost]
+    public IActionResult Edit(Category Obj)
+    {
+        if (Obj.Name == Obj.DisplayOrder.ToString())
+            ModelState.AddModelError("Name", "The Display Order cannot exactly match the Name");
+        if (ModelState.IsValid)
+        {
+            _db.Categories?.Update(Obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index", "Category");
+        }
+        return View();
+    }
 }
