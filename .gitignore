@@ -5,6 +5,7 @@
 
 # Migration files
 Migrations/
+*.db
 
 # dotenv files
 .env
