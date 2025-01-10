@@ -9,21 +9,21 @@
                         </div>
                 </div>
         </div>
-<table class="table table-bordered table-striped">
-        <thead>
-                <tr>
-                        <th>
-                                Category Name
-                        </th>
-                        <th>
-                                Display Order
-                        </th>
+        <table class="table table-bordered table-striped">
+                <thead>
+                        <tr>
+                                <th>
+                                        Category Name
+                                </th>
+                                <th>
+                                        Display Order
+                                </th>
                                 <th></th>
-                </tr>
-        </thead>
-        <tbody>
-                @foreach(var Item in Model.OrderBy(Item => Item.DisplayOrder))
-                {
+                        </tr>
+                </thead>
+                <tbody>
+                        @foreach(var Item in Model.OrderBy(Item => Item.DisplayOrder))
+                        {
                         <tr>
                                 <td>@Item.Name</td>
                                 <td>@Item.DisplayOrder</td>
@@ -38,6 +38,6 @@
                                         </div>
                                 </td>
                         </tr>
-                }
-        </tbody>
-</table>
+                        }
+                </tbody>
+        </table>
